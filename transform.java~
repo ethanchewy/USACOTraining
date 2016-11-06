@@ -1,0 +1,19 @@
+/*
+ID: 17chiue1
+LANG: JAVA
+TASK: transform
+ */
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+class Transform {
+  
+  /* ADD YOUR CODE HERE */
+  public static void main(String args[]) throws IOException{
+  }
+}
