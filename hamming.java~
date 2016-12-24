@@ -1,0 +1,11 @@
+/*
+ID: 17chiue1
+LANG: JAVA
+TASK: hamming
+ */
+
+import java.io.*;
+import java.util.*;
+
+public class hamming {
+}

@@ -1,0 +1,74 @@
+/*
+ID: 17chiue1
+LANG: JAVA
+TASK: holstein
+ */
+
+import java.io.*;
+import java.util.*;
+
+public class holstein {
+  public static void main(String[] args) throws IOException{
+    Scanner sc = new Scanner(new File("holstein.in"));
+    PrintWriter pw = new PrintWriter(new File("holstein.out"));
+    
+    //Get Input
+    //Types of Vitamins
+    int v = sc.nextInt();
+    
+    //Min. Requirements
+    int[] requirements = new int[v];
+    
+    for(int i = 0; i<v;i++){
+      requirements[i] = sc.nextInt();
+    }
+    
+    int g = sc.nextInt();
+    //All vitamins available
+    int[][] feed = new int[v][g];
+    
+    for(int i = 0; i<v;i++){
+      for(int j = 0; j<g;j++){
+        feed[i][j] = sc.nextInt();
+      }
+    }
+    sc.close();
+    int total = 0;
+    
+    //Try all possible subsets (g!)
+    //Try if there is only 1 scoop, 2 scoops, etc.
+    //First, try each match. For example {a,b,c}, try {a,b}, {a,c}, {b,c}
+    
+    //int total = 0; // location in requirements
+    
+    //For each possible lengh of minimum number of scoops
+    for(int i=0;i<g;i++){
+      if(meetRequirement(i,requirements,feed,pw)){
+        break;
+      }
+    }
+    pw.close();
+    
+  }
+  
+  public static boolean meetRequirement(int size, int[] requirements, int[][] feed,PrintWriter pw){
+    boolean found = false;
+    int total[] = new int[requirements.length];
+    
+    //For reference for the last part of output
+    int[] indices = new int[15];
+    while(!found){
+      for(int i=0;i<size;i++){
+        for(int j =0;j<size;j++){
+          total[j]+=feed[i][j];
+          if(total>=requirements[i]){
+            pw.println(size+" "+ indices[0] + " " + indices[1]);
+            break;
+          }
+        }
+      }
+    }
+    
+  }
+  
+}
